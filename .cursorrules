@@ -1,0 +1,657 @@
+The Google Maps Aggregate API with insight type INSIGHT_PLACES returns a list of 100 or less place IDs.
+The Place Details API gives us information about a restaurant given its place ID.
+The Place Details API groups fields it can return by pricing tier. The most critical field I want is userRatingCount
+
+Here are the fields I want from Place Details API:
+attributions
+id
+moved_place
+moved_place_id
+name*
+photos
+
+* The name field contains the place resource name in the form: places/PLACE_ID. To get the text name of the place, request the displayName field in the Pro SKU.
+addressComponents
+addressDescriptor*
+adrFormatAddress
+formattedAddress
+location
+plusCode
+postalAddress
+shortFormattedAddress
+types
+viewport
+
+* Address descriptors are generally available for customers in India and are experimental elsewhere.
+accessibilityOptions
+businessStatus
+containingPlaces
+displayName
+googleMapsLinks
+googleMapsUri
+iconBackgroundColor
+iconMaskBaseUri
+primaryType
+primaryTypeDisplayName
+pureServiceAreaBusiness
+subDestinations
+utcOffsetMinutes
+currentOpeningHours
+currentSecondaryOpeningHours
+internationalPhoneNumber
+nationalPhoneNumber
+priceLevel
+priceRange
+rating
+regularOpeningHours
+regularSecondaryOpeningHours
+userRatingCount
+websiteUri
+
+
+Here is the response to a Place Details API call for the place ID of Don Japanese Kitchen, the request is https://places.googleapis.com/v1/places/{{place_id}}?fields={{fields}}&key={{API_KEY}} with fields attributions,id,moved_place,moved_place_id,name,photos,addressComponents,addressDescriptor,adrFormatAddress,formattedAddress,location,plusCode,postalAddress,shortFormattedAddress,types,viewport,accessibilityOptions,businessStatus,containingPlaces,displayName,googleMapsLinks,googleMapsUri,iconBackgroundColor,iconMaskBaseUri,primaryType,primaryTypeDisplayName,pureServiceAreaBusiness,subDestinations,utcOffsetMinutes,currentOpeningHours,currentSecondaryOpeningHours,internationalPhoneNumber,nationalPhoneNumber,priceLevel,priceRange,rating,regularOpeningHours,regularSecondaryOpeningHours,userRatingCount,websiteUri:
+{
+    "name": "places/ChIJxwR7UjCpXIYR_ATAwl9nGHs",
+    "id": "ChIJxwR7UjCpXIYR_ATAwl9nGHs",
+    "types": [
+        "japanese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+    ],
+    "nationalPhoneNumber": "(281) 725-3686",
+    "internationalPhoneNumber": "+1 281-725-3686",
+    "formattedAddress": "829 N LBJ Dr, San Marcos, TX 78666, USA",
+    "addressComponents": [
+        {
+            "longText": "829",
+            "shortText": "829",
+            "types": [
+                "street_number"
+            ],
+            "languageCode": "en-US"
+        },
+        {
+            "longText": "North LBJ Drive",
+            "shortText": "N LBJ Dr",
+            "types": [
+                "route"
+            ],
+            "languageCode": "en"
+        },
+        {
+            "longText": "San Marcos",
+            "shortText": "San Marcos",
+            "types": [
+                "locality",
+                "political"
+            ],
+            "languageCode": "en"
+        },
+        {
+            "longText": "Hays County",
+            "shortText": "Hays County",
+            "types": [
+                "administrative_area_level_2",
+                "political"
+            ],
+            "languageCode": "en"
+        },
+        {
+            "longText": "Texas",
+            "shortText": "TX",
+            "types": [
+                "administrative_area_level_1",
+                "political"
+            ],
+            "languageCode": "en"
+        },
+        {
+            "longText": "United States",
+            "shortText": "US",
+            "types": [
+                "country",
+                "political"
+            ],
+            "languageCode": "en"
+        },
+        {
+            "longText": "78666",
+            "shortText": "78666",
+            "types": [
+                "postal_code"
+            ],
+            "languageCode": "en-US"
+        }
+    ],
+    "plusCode": {
+        "globalCode": "76X4V3V5+77",
+        "compoundCode": "V3V5+77 San Marcos, TX, USA"
+    },
+    "location": {
+        "latitude": 29.8931736,
+        "longitude": -97.941856899999991
+    },
+    "viewport": {
+        "low": {
+            "latitude": 29.891892469708495,
+            "longitude": -97.943253630291508
+        },
+        "high": {
+            "latitude": 29.89459043029149,
+            "longitude": -97.940555669708488
+        }
+    },
+    "rating": 4.9,
+    "googleMapsUri": "https://maps.google.com/?cid=8869953127093110012&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA",
+    "websiteUri": "http://don-japanese-kitchen.square.site/",
+    "regularOpeningHours": {
+        "openNow": false,
+        "periods": [
+            {
+                "open": {
+                    "day": 2,
+                    "hour": 16,
+                    "minute": 30
+                },
+                "close": {
+                    "day": 2,
+                    "hour": 22,
+                    "minute": 30
+                }
+            },
+            {
+                "open": {
+                    "day": 3,
+                    "hour": 16,
+                    "minute": 30
+                },
+                "close": {
+                    "day": 3,
+                    "hour": 22,
+                    "minute": 30
+                }
+            },
+            {
+                "open": {
+                    "day": 4,
+                    "hour": 16,
+                    "minute": 30
+                },
+                "close": {
+                    "day": 5,
+                    "hour": 0,
+                    "minute": 30
+                }
+            },
+            {
+                "open": {
+                    "day": 5,
+                    "hour": 16,
+                    "minute": 30
+                },
+                "close": {
+                    "day": 6,
+                    "hour": 0,
+                    "minute": 30
+                }
+            },
+            {
+                "open": {
+                    "day": 6,
+                    "hour": 16,
+                    "minute": 30
+                },
+                "close": {
+                    "day": 0,
+                    "hour": 0,
+                    "minute": 30
+                }
+            }
+        ],
+        "weekdayDescriptions": [
+            "Monday: Closed",
+            "Tuesday: 4:30 – 10:30 PM",
+            "Wednesday: 4:30 – 10:30 PM",
+            "Thursday: 4:30 PM – 12:30 AM",
+            "Friday: 4:30 PM – 12:30 AM",
+            "Saturday: 4:30 PM – 12:30 AM",
+            "Sunday: Closed"
+        ],
+        "nextOpenTime": "2026-01-13T22:30:00Z"
+    },
+    "utcOffsetMinutes": -360,
+    "adrFormatAddress": "<span class=\"street-address\">829 N LBJ Dr</span>, <span class=\"locality\">San Marcos</span>, <span class=\"region\">TX</span> <span class=\"postal-code\">78666</span>, <span class=\"country-name\">USA</span>",
+    "businessStatus": "OPERATIONAL",
+    "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+    "userRatingCount": 634,
+    "iconMaskBaseUri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+    "iconBackgroundColor": "#FF9E67",
+    "displayName": {
+        "text": "Don Japanese Kitchen",
+        "languageCode": "en"
+    },
+    "primaryTypeDisplayName": {
+        "text": "Japanese Restaurant",
+        "languageCode": "en-US"
+    },
+    "currentOpeningHours": {
+        "openNow": false,
+        "periods": [
+            {
+                "open": {
+                    "day": 2,
+                    "hour": 16,
+                    "minute": 30,
+                    "date": {
+                        "year": 2026,
+                        "month": 1,
+                        "day": 13
+                    }
+                },
+                "close": {
+                    "day": 2,
+                    "hour": 22,
+                    "minute": 30,
+                    "date": {
+                        "year": 2026,
+                        "month": 1,
+                        "day": 13
+                    }
+                }
+            },
+            {
+                "open": {
+                    "day": 3,
+                    "hour": 16,
+                    "minute": 30,
+                    "date": {
+                        "year": 2026,
+                        "month": 1,
+                        "day": 14
+                    }
+                },
+                "close": {
+                    "day": 3,
+                    "hour": 22,
+                    "minute": 30,
+                    "date": {
+                        "year": 2026,
+                        "month": 1,
+                        "day": 14
+                    }
+                }
+            },
+            {
+                "open": {
+                    "day": 4,
+                    "hour": 16,
+                    "minute": 30,
+                    "date": {
+                        "year": 2026,
+                        "month": 1,
+                        "day": 15
+                    }
+                },
+                "close": {
+                    "day": 5,
+                    "hour": 0,
+                    "minute": 30,
+                    "date": {
+                        "year": 2026,
+                        "month": 1,
+                        "day": 16
+                    }
+                }
+            },
+            {
+                "open": {
+                    "day": 5,
+                    "hour": 16,
+                    "minute": 30,
+                    "date": {
+                        "year": 2026,
+                        "month": 1,
+                        "day": 16
+                    }
+                },
+                "close": {
+                    "day": 6,
+                    "hour": 0,
+                    "minute": 30,
+                    "date": {
+                        "year": 2026,
+                        "month": 1,
+                        "day": 17
+                    }
+                }
+            },
+            {
+                "open": {
+                    "day": 6,
+                    "hour": 16,
+                    "minute": 30,
+                    "date": {
+                        "year": 2026,
+                        "month": 1,
+                        "day": 17
+                    }
+                },
+                "close": {
+                    "day": 0,
+                    "hour": 0,
+                    "minute": 30,
+                    "date": {
+                        "year": 2026,
+                        "month": 1,
+                        "day": 18
+                    }
+                }
+            }
+        ],
+        "weekdayDescriptions": [
+            "Monday: Closed",
+            "Tuesday: 4:30 – 10:30 PM",
+            "Wednesday: 4:30 – 10:30 PM",
+            "Thursday: 4:30 PM – 12:30 AM",
+            "Friday: 4:30 PM – 12:30 AM",
+            "Saturday: 4:30 PM – 12:30 AM",
+            "Sunday: Closed"
+        ],
+        "nextOpenTime": "2026-01-13T22:30:00Z"
+    },
+    "primaryType": "japanese_restaurant",
+    "shortFormattedAddress": "829 N LBJ Dr, San Marcos",
+    "photos": [
+        {
+            "name": "places/ChIJxwR7UjCpXIYR_ATAwl9nGHs/photos/AcnlKN3koAXnJB1E9VzSe7dE5EPbOTDY-oE6133x-Fnr2CrvEXiVYTxIl3b55e8nnLY21WBWC92Pf3d1RuA2qg1Nf5_as6znNSWvhYAOUn1gmUpPzHHIM2tLdJyVXmr9Vc4i1WBSQlM8lIxJI3m-woOTJDcmz2rbGJRoJclcuYqMl_9rDMYIrA_ahSvpTFlljmNm_f9EmUNSFWujVTPBpG_odnx5IGAyAH51GFwUbj-xR-2vstBCUzXQ89BsOK1sCTe9nnRSm0yz7yRZcexU_4E6B-KwIJx2gBOIwZcwkHFG0jQRqg",
+            "widthPx": 4160,
+            "heightPx": 3120,
+            "authorAttributions": [
+                {
+                    "displayName": "Don Japanese Kitchen",
+                    "uri": "https://maps.google.com/maps/contrib/113942130003907748403",
+                    "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjXG0rmCJV69kaL0LRAOoFXuDgCTdzSZarTnzqZ5JeQTqWgrEBs=s100-p-k-no-mo"
+                }
+            ],
+            "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sAF1QipP1tZ_Qj-TvbR6wSPKi4-wqkgDCD4aaBaqhdMA8&hl=en-US",
+            "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipP1tZ_Qj-TvbR6wSPKi4-wqkgDCD4aaBaqhdMA8!2e10!4m2!3m1!1s0x865ca930527b04c7:0x7b18675fc2c004fc"
+        },
+        {
+            "name": "places/ChIJxwR7UjCpXIYR_ATAwl9nGHs/photos/AcnlKN1SaQkjksd-fIIgcbKXJivQQ5r37j1dRiEj63WaN_BnesiQFOTe5XzcvEaFT6HoqjGBhvddCWr1o4uQnev-jaoQvh7Kzv4tUaqV2NdnKHTsF8JsvXgdmsuH3jHT6Bl2KBSEZMZ5F76amRaxx2w464JUG6EQGuYsSpK96LV-tGFAg8idRinvsIFKhOiITxIao07DePoLg3h22Kvuycio-xZtX4b27ZHPHlvjkKNgtY-X9sJoKggOTWPGwaviLWlVc6ZUPK2Y5UwPXDN6T_lc_reTi2xekFfe_k4ZiChA-xwWObloGoyakbOIGupi8aP5Cwn7XZh80JywB2hOuHkMWqhMzXT4lfQfCr4o8dENKyOSg8cG0Zfu_JBrwc-LtD3pyEUs4kWauRVmMmuXR_TezUenV1sKJqxxx6AbupykJoX7J6U",
+            "widthPx": 2775,
+            "heightPx": 3581,
+            "authorAttributions": [
+                {
+                    "displayName": "Dharshini M",
+                    "uri": "https://maps.google.com/maps/contrib/115170406384817538367",
+                    "photoUri": "https://lh3.googleusercontent.com/a/ACg8ocJmvz0FqfF9OYsZedkpL4-CqRp5IXS2Qd_cqvWKW3y557bO1NNW=s100-p-k-no-mo"
+                }
+            ],
+            "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sCIHM0ogKEICAgMCgnIfp4wE&hl=en-US",
+            "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIHM0ogKEICAgMCgnIfp4wE!2e10!4m2!3m1!1s0x865ca930527b04c7:0x7b18675fc2c004fc"
+        },
+        {
+            "name": "places/ChIJxwR7UjCpXIYR_ATAwl9nGHs/photos/AcnlKN24t5d8satxK4fI76xdcHSVS2HOZInsJ9o7Rz2L8tVZd3NA4j_mlQdIIXwa_Oan1qlj_Eydp__trmCBzZTLwykR4bLofaJLLrC5J-SuIFtjh52AG0QzotB_Mw_tKMgJTyIgXPoTLgqtdRpEbXOucd6jVTDUJJlFRnUInbHkRQiNzNQzqSrJrIWOsugWzwFN4nuEXcPDz8rklenufiEUF8Knywe2dpV6CPaYrOsvgCc_vStJhrVwOTK-fNn3dV6Zzy8HckIPnDlVZh5cZ3SIZeHe7KT_NbGr5NjlVNaKwYgCaFGNwCiZ_k9CaAdrtZsTgG67O3VhTdPVHoKxvMvV_eLROo9vqnbk5-hz3uWXCWNi_Rfd0WU1OxXW7FrbiR1FnQNvMVWqLE8HqQdNXP9shVgDvZAGCiEw9O1PF-p7GvWRiw",
+            "widthPx": 3000,
+            "heightPx": 4000,
+            "authorAttributions": [
+                {
+                    "displayName": "Rosalba Merchant",
+                    "uri": "https://maps.google.com/maps/contrib/115739199705159138647",
+                    "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjWt1grbH1EZfRY0lRsZRCWtmlbfguMMYg7fdi7cCn9m3MoJztP4=s100-p-k-no-mo"
+                }
+            ],
+            "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sCIHM0ogKEICAgICLtqyPMw&hl=en-US",
+            "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIHM0ogKEICAgICLtqyPMw!2e10!4m2!3m1!1s0x865ca930527b04c7:0x7b18675fc2c004fc"
+        },
+        {
+            "name": "places/ChIJxwR7UjCpXIYR_ATAwl9nGHs/photos/AcnlKN0cwSF1lhT0Hu41OaPROdRYU-Upq-AWLoxh_YStkRxxyP-saEl8ns3wnMCmdbu3lQfSeAqO07cqeqlux_NBeCGPzJSw2rKnPa0s--WOmXX4z9J1gemxE8QSxMCj7xKnVptMrBLhVpC3iu8EUZJjncaKx4_ypl6kpfyM-1YVqhcgunWFRMXnWuxRI8fdawX4tAjVRw7Pk5cjtAcoEL3qcKnA3G4OqMtXKqEAhgjrlwCXsDk1ITCal_LnKfYtbcJ_dmjha-LrU2BQEUmxc2LciTEMuW7B5X-LmQZ6zaLv_46zYBV0FyXASsx39txxTmBsYxMmStRPVreKLrg1LC-aUOM4XK4wk95itTekceXxAioIjuLZWgmQk3nDgQeiYF5KZ5PDdjmEDqS8OYvhxTgRwTZqmTuY4-WJm1vuios2ZnILYHE",
+            "widthPx": 4000,
+            "heightPx": 3000,
+            "authorAttributions": [
+                {
+                    "displayName": "ar romano",
+                    "uri": "https://maps.google.com/maps/contrib/101233804664919761728",
+                    "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjUzb_fYyx4gs0NimgkjnjLSR2GtxqOZup0g_aeMiaj2uK2Lv08=s100-p-k-no-mo"
+                }
+            ],
+            "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sCIHM0ogKEICAgMDguYqBtwE&hl=en-US",
+            "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIHM0ogKEICAgMDguYqBtwE!2e10!4m2!3m1!1s0x865ca930527b04c7:0x7b18675fc2c004fc"
+        },
+        {
+            "name": "places/ChIJxwR7UjCpXIYR_ATAwl9nGHs/photos/AcnlKN0hdADJyJ9s3iKSIHKySbLYBSo5MDmWp2N5Jcc7BqJMx4VRwfudjvNlS9OUl7yAPOBbR1p6YQUHA33tLsgSbd6kc8wyt1DfVuX8uEK2BRB0StqMA_jaRfafEop9sAFl-9ERHOVWTp4erUHaSOcFrE62DAPA5CGQsb4wRyGochhZceIqeWHBE4M5_P4tKy6H2Z7QH2QM0GTdRRvSWB543PQT6cCDXBymIkSYP_LwtU-pMj2aHmDfqwbCZqv3_Sax5odNRxTqz4aHcThHKNFsD90X1y3xDYP6SyShxZeyjjaUGAMnCjP4RfXTMCARUY1LPuHTlNE6mom2gmJnHj0zOwnqgUWMqxUcH7_liZPuOpaAFAlP_8EYRM5SUSptkqMlSz7Kd2rqI9ZZTN7cKrgOHB-dGGmqptEdrdcYcYu90ZwO_l1t8t_1Sg7u2L1gPg",
+            "widthPx": 4624,
+            "heightPx": 3472,
+            "authorAttributions": [
+                {
+                    "displayName": "Dennis C. Tommy",
+                    "uri": "https://maps.google.com/maps/contrib/115163368407239753529",
+                    "photoUri": "https://lh3.googleusercontent.com/a/ACg8ocJlsACDzaIp0av4eC_hU7x0c0cc9u8QAb887Du2Aa7vfvUmJg=s100-p-k-no-mo"
+                }
+            ],
+            "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sCIABIhB8uQ-NSq4AGLzJ6R3wiVWL&hl=en-US",
+            "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIABIhB8uQ-NSq4AGLzJ6R3wiVWL!2e10!4m2!3m1!1s0x865ca930527b04c7:0x7b18675fc2c004fc"
+        },
+        {
+            "name": "places/ChIJxwR7UjCpXIYR_ATAwl9nGHs/photos/AcnlKN31Y1B4vvSLMsOwSxnOpm-dEfVP99AB6XVtMJ1du1NanvvJuW328JveYEt0NjRVI5nf_JAq1rdj2C81trXAgiX8fRdvKq0S5kd-I1JoAqdIjc01o8qeXY--KJ9xMPthnEltqFSDoa0Pu-1CNei-QUmaPECDzx7Ltmcas6G9ukgo8fV88Dl-xKe2CH6-Wga6ZhtdHf2wd3Io1X_0X4OPZvQRAU0kf5o5Sfe6gZE2OZAWRe6kd9DdiemYXxTsoMkk6aM3xY-vuQi-Fo57S31YvbUE4y5oOIHsXv3Y5IlGjbjeEkgjlBsE7CwSYsOAa7cCQcn3EqaSYmxZAVyhLyXQxzvzKnKCAUeQ8Kvw-mr-Ib00mVJDpE4S1FudOWpPyBqbMSRZctFsJwsGTSn0mZbKdnQpJyoD0EXcxvXCykbBs7-jWnyo",
+            "widthPx": 3600,
+            "heightPx": 4800,
+            "authorAttributions": [
+                {
+                    "displayName": "Jesus Gutierrez",
+                    "uri": "https://maps.google.com/maps/contrib/101428712893467125366",
+                    "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjW0AA-27wrv2niUXm53bR-FwjeWZTHvs8qXwG8kuHVZpUi2iks=s100-p-k-no-mo"
+                }
+            ],
+            "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sCIHM0ogKEICAgMCwoPGK6QE&hl=en-US",
+            "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIHM0ogKEICAgMCwoPGK6QE!2e10!4m2!3m1!1s0x865ca930527b04c7:0x7b18675fc2c004fc"
+        },
+        {
+            "name": "places/ChIJxwR7UjCpXIYR_ATAwl9nGHs/photos/AcnlKN2Jv3mw_BwpkqDrgeVItU2Kw24hFEfB1rIshZbmvSPkiqYB3qSaWyIx1nIxdmsPjLAvAXcooxCwN_KS_DREepJ9JhMy1sCTX5K0Xd_buI00sghE5fjD3iAGElw3o0uf8GBHywv_kyydiMcZGUIsIaBne1U528WTkn2W--imjni1d29HZm0Yv2XWRG3K3osCGX0BJzCpwK3yYyEcBV5Zav8wkbnFx6rNmUyI3CLm8QQw5ZbsJ8LGkaFA9uH1Ie-N8oYpIXaJqvbZLMDBUYQ_zHOuQ666_CLAPB9iGEhiPXwgNaLIzunVkK5QW8lQ5nYq1-yUaxqaqmU3LcLkqYg6pHAsPRi-UHloW0Eh-mMcSeIxAaggWSlQPj-VfkNF8edMkMIQNYfYUN3b-EMSwmAkyhU2-1dOGge5_SZp5cfoRiw2kCnq",
+            "widthPx": 3000,
+            "heightPx": 4000,
+            "authorAttributions": [
+                {
+                    "displayName": "Salman Bin Habib",
+                    "uri": "https://maps.google.com/maps/contrib/112622069532280042351",
+                    "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjWt-3E247z5h7tm7JSUIN8km3EwJv3cPIKiMh-x8qPYVi5mI0m8=s100-p-k-no-mo"
+                }
+            ],
+            "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sCIHM0ogKEICAgICune-dqAE&hl=en-US",
+            "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIHM0ogKEICAgICune-dqAE!2e10!4m2!3m1!1s0x865ca930527b04c7:0x7b18675fc2c004fc"
+        },
+        {
+            "name": "places/ChIJxwR7UjCpXIYR_ATAwl9nGHs/photos/AcnlKN3BK9Mc1FJryRCOKLIfkGieUxBgKZFGUKpKQLZm2-O10o-b4Hwy5zjlnFpWl9G3RwNBbFxe9HbKoMSTRRMbLoIG9fPQ3GdVHtjsForamFNr_l87FlQ7Ic1UPIpOx4J06qfeM7qRAancUtJ1EFRbH5OyI7ho97shqxALtoFHjQvyyarPtBX_Y-9BOd6SLWLUIaKSR-JjUf9AUHLrV9iNbRUyFqTlQTKtpoqxyYLLZf0YE7KiItA_Qqi4y12YvJIVNVcN3tEwOpDGMHVNuFxfBbgliIHEXTwe955K1RpK5q8Ig-XWlFC_4bDaJeO6ynHzvYCh5njKQOx2m-O8eiBoFm40zIV53IwhLyTtHB9ePhaaT8yZr0p66Jk-6Hf3AAtyjfHEwo00xDARVyMGnW-Loqi-QRnRon8cQISuZM6cidi-j3enfaOD_is_nluaDfR8",
+            "widthPx": 3472,
+            "heightPx": 4624,
+            "authorAttributions": [
+                {
+                    "displayName": "Dennis C. Tommy",
+                    "uri": "https://maps.google.com/maps/contrib/115163368407239753529",
+                    "photoUri": "https://lh3.googleusercontent.com/a/ACg8ocJlsACDzaIp0av4eC_hU7x0c0cc9u8QAb887Du2Aa7vfvUmJg=s100-p-k-no-mo"
+                }
+            ],
+            "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sCIABIhDQuvUeqnDVz98XbEjodgMD&hl=en-US",
+            "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIABIhDQuvUeqnDVz98XbEjodgMD!2e10!4m2!3m1!1s0x865ca930527b04c7:0x7b18675fc2c004fc"
+        },
+        {
+            "name": "places/ChIJxwR7UjCpXIYR_ATAwl9nGHs/photos/AcnlKN16elWbX-JPUjr36_ajJbd7JIYOuRU-52CIzTHKbEjtKuhAdv1dZif5RaKgxnnH6BMOdzVkBgNWYXFnqhB08qeGSDJywao43eJ0TjQoezuSzJIbNjn-ZRjQu2ZxYdhUoTbeGxUGESLm0Gp745zbmkCCNUNJahC_w7j9hkJNohkTYIq48whiRGe1ZdoE0m-sxEnviW75sQXTZFBrF5OebgF9hhrSmmApdc5D_I7XKDFf7hClVCRHYcIydvmDjuyF1TOTw0iImEELkBpUPc-CDRa3WO1YXS4Mey_3oQEv7dQGKmg7dlanXgaF-lKPyiDHIN0vNhLxPy1IWnfpFxBayTVrNlLzcgBBf2Ex9_UHjfrO6AeOnS3zJZRsQ5cJocQonJYHVVcQNAwDpeev9WpnhM9m3V_jssgunAsMNBHxI6LKgQ",
+            "widthPx": 4032,
+            "heightPx": 3024,
+            "authorAttributions": [
+                {
+                    "displayName": "Erika Benitez",
+                    "uri": "https://maps.google.com/maps/contrib/109953893269756760809",
+                    "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjUTJQ7AlyjjyyJtwyTKpo7D38C7YQI7wqDlygPEWel3Dx9ol4JU=s100-p-k-no-mo"
+                }
+            ],
+            "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sCIHM0ogKEICAgIDp9u_mFA&hl=en-US",
+            "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIHM0ogKEICAgIDp9u_mFA!2e10!4m2!3m1!1s0x865ca930527b04c7:0x7b18675fc2c004fc"
+        },
+        {
+            "name": "places/ChIJxwR7UjCpXIYR_ATAwl9nGHs/photos/AcnlKN2OXlu_--n95RssZmIPraXcmJIqs8RdgPbNbNn2CwR__KgFH-WQoDZHqtmyPV_eEvFDcverjdSZBP2tL1l9KSXkVqPFXqyqFFntqg4p1OG-kGQUMMVFJIPa6o69RgmO5Ih1HM6cMXpq1Tiy5BpOpe96LvHDyjSW2ord9aMpw_UbIBlOdJIJ0SgmANz4BExOp1qNVLLsMDd0dYNy-SvNA7Nq7zE2ytnlVJY-30MRj8Ba7LANUZCuhFEhNxDY48fqnzyX1nHiR86XUEyBWIJDrBH5VtnvPw2MlLU6sCdZsnX0LG3TnECw9lffbfwlmzh5eKXrK8VlVATV2J_xeoJrrZj6a7-Bn6RQwhqMV0OtnDmRgmg1J_o7X4zLxGQ3e7GR0NRQF48fkMk2mt3K98p6h8JaLlj123aWsoPoMKZzvpmqmQ",
+            "widthPx": 3024,
+            "heightPx": 4032,
+            "authorAttributions": [
+                {
+                    "displayName": "J K",
+                    "uri": "https://maps.google.com/maps/contrib/107469207021786367201",
+                    "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjXifT3ZddS_ZRY4QovSoBQLtLqSxFz6zbJGRvdptAZxZ4r4X0Q=s100-p-k-no-mo"
+                }
+            ],
+            "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sCIHM0ogKEICAgIDhqZK6aA&hl=en-US",
+            "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIHM0ogKEICAgIDhqZK6aA!2e10!4m2!3m1!1s0x865ca930527b04c7:0x7b18675fc2c004fc"
+        }
+    ],
+    "containingPlaces": [
+        {
+            "name": "places/ChIJ835YmWuoXIYRPeJHM2-AhWU",
+            "id": "ChIJ835YmWuoXIYRPeJHM2-AhWU"
+        }
+    ],
+    "pureServiceAreaBusiness": false,
+    "addressDescriptor": {
+        "landmarks": [
+            {
+                "name": "places/ChIJ3yStNnCoXIYRkulAp54VF3E",
+                "placeId": "ChIJ3yStNnCoXIYRkulAp54VF3E",
+                "displayName": {
+                    "text": "Texas State University",
+                    "languageCode": "en"
+                },
+                "types": [
+                    "establishment",
+                    "point_of_interest",
+                    "school",
+                    "university"
+                ],
+                "spatialRelationship": "DOWN_THE_ROAD",
+                "straightLineDistanceMeters": 639.0846,
+                "travelDistanceMeters": 241.91127
+            },
+            {
+                "name": "places/ChIJP18HwWuoXIYR-2Bsyhd9qfo",
+                "placeId": "ChIJP18HwWuoXIYR-2Bsyhd9qfo",
+                "displayName": {
+                    "text": "Grins Restaurant",
+                    "languageCode": "en"
+                },
+                "types": [
+                    "bar",
+                    "establishment",
+                    "food",
+                    "point_of_interest",
+                    "restaurant"
+                ],
+                "straightLineDistanceMeters": 72.20587,
+                "travelDistanceMeters": 142.59758
+            },
+            {
+                "name": "places/ChIJUVFd4GeoXIYRMFYQEJussbg",
+                "placeId": "ChIJUVFd4GeoXIYRMFYQEJussbg",
+                "displayName": {
+                    "text": "Vie Lofts at San Marcos",
+                    "languageCode": "en"
+                },
+                "types": [
+                    "establishment",
+                    "point_of_interest"
+                ],
+                "straightLineDistanceMeters": 82.32785,
+                "travelDistanceMeters": 165.49043
+            },
+            {
+                "name": "places/ChIJh4Mzl2uoXIYRdf-1URJ6-nE",
+                "placeId": "ChIJh4Mzl2uoXIYRdf-1URJ6-nE",
+                "displayName": {
+                    "text": "Treff's Tavern",
+                    "languageCode": "en"
+                },
+                "types": [
+                    "bar",
+                    "establishment",
+                    "point_of_interest"
+                ],
+                "spatialRelationship": "DOWN_THE_ROAD",
+                "straightLineDistanceMeters": 52.55102,
+                "travelDistanceMeters": 80.65033
+            },
+            {
+                "name": "places/ChIJ8Ysp22uoXIYRmGAKBImB2lA",
+                "placeId": "ChIJ8Ysp22uoXIYRmGAKBImB2lA",
+                "displayName": {
+                    "text": "Dos Gatos Kolache Bakery",
+                    "languageCode": "en"
+                },
+                "types": [
+                    "bakery",
+                    "establishment",
+                    "food",
+                    "point_of_interest",
+                    "restaurant",
+                    "store"
+                ],
+                "straightLineDistanceMeters": 188.10895,
+                "travelDistanceMeters": 240.65916
+            }
+        ],
+        "areas": [
+            {
+                "name": "places/ChIJ--Czm2uoXIYROkJZGwnplVQ",
+                "placeId": "ChIJ--Czm2uoXIYROkJZGwnplVQ",
+                "displayName": {
+                    "text": "Chestnut Plaza",
+                    "languageCode": "en"
+                },
+                "containment": "OUTSKIRTS"
+            },
+            {
+                "name": "places/ChIJIYaYfmyoXIYRGRARv4kB3aw",
+                "placeId": "ChIJIYaYfmyoXIYRGRARv4kB3aw",
+                "displayName": {
+                    "text": "Sessom Creek Park",
+                    "languageCode": "en"
+                },
+                "containment": "NEAR"
+            },
+            {
+                "name": "places/ChIJHTUWjGuoXIYRNGb1kVn--Bg",
+                "placeId": "ChIJHTUWjGuoXIYRNGb1kVn--Bg",
+                "displayName": {
+                    "text": "Vie Lofts at San Marcos",
+                    "languageCode": "en"
+                },
+                "containment": "NEAR"
+            }
+        ]
+    },
+    "googleMapsLinks": {
+        "directionsUri": "https://www.google.com/maps/dir//''/data=!4m7!4m6!1m1!4e2!1m2!1m1!1s0x865ca930527b04c7:0x7b18675fc2c004fc!3e0?g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA",
+        "placeUri": "https://maps.google.com/?cid=8869953127093110012&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA",
+        "writeAReviewUri": "https://www.google.com/maps/place//data=!4m3!3m2!1s0x865ca930527b04c7:0x7b18675fc2c004fc!12e1?g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA",
+        "reviewsUri": "https://www.google.com/maps/place//data=!4m4!3m3!1s0x865ca930527b04c7:0x7b18675fc2c004fc!9m1!1b1?g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA",
+        "photosUri": "https://www.google.com/maps/place//data=!4m3!3m2!1s0x865ca930527b04c7:0x7b18675fc2c004fc!10e5?g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
+    },
+    "priceRange": {
+        "startPrice": {
+            "currencyCode": "USD",
+            "units": "10"
+        },
+        "endPrice": {
+            "currencyCode": "USD",
+            "units": "20"
+        }
+    },
+    "postalAddress": {
+        "regionCode": "US",
+        "languageCode": "en-US",
+        "postalCode": "78666",
+        "administrativeArea": "Texas",
+        "locality": "San Marcos",
+        "addressLines": [
+            "829 N LBJ Dr"
+        ]
+    }
+}
