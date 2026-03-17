@@ -1,0 +1,10 @@
+version: 1.0
+runtime: go1
+build:
+  commands:
+    build:
+      - go build -o topspots-backend
+run:
+  command: ./topspots-backend
+  network:
+    port: 8080
